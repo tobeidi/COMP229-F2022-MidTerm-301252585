@@ -1,3 +1,10 @@
+<!--App Name     : FavouriteBook List - list.ejs
+    Author       :
+    Edited by    : Tarik Obeidi
+    ID           : 301252585
+-->
+
+
 <main class="container">
     <div class="row">
         <div class="offset-md-1 col-md-11">
@@ -7,6 +14,8 @@
             <!-- ------------------------ -->
             <!-- FIX THE ADD BUTTON BELOW -->
             <!-- ------------------------ -->
+            
+            <!-- Add button link  -->
             <a href="/books/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add a Book</a>
             <br>
@@ -45,6 +54,8 @@
                             <!-- ------------------------ -->
                             <!-- ADD the EDIT BUTTON HERE -->
                             <!-- ------------------------ -->
+            
+                            <!-- Edit button link  -->
                             <a href="/books/edit/<%= books[count]._id %>"
                                 class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit </a>
@@ -53,6 +64,8 @@
                             <!-- ------------------------ -->
                             <!-- ADD the DELETE BUTTON HERE -->
                             <!-- ------------------------ -->
+
+                            <!-- Delete button link  -->
                             <a href="/books/delete/<%= books[count]._id %>"
                                 class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i> Delete </a>

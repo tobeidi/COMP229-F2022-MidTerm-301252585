@@ -1,3 +1,9 @@
+/*  App Name     : FavouriteBook List - books.js
+    Author       :
+    Edited by    : Tarik Obeidi
+    ID           : 301252585
+*/
+
 // define the book model
 import booksModel from '../models/books.js';
 
@@ -19,6 +25,7 @@ export function displayAddPage(req, res, next) {
     /*****************
     * ADD CODE HERE *
     *****************/
+   
      res.render('index', { title: 'Add Book', page: '/books/edit', book: {}});
 
 }
@@ -29,6 +36,8 @@ export function processAddPage(req, res, next) {
     /*****************
      * ADD CODE HERE *
      *****************/
+
+    // Composing a new book document 
      let newBook = booksModel({
         name: req.body.name,
         author: req.body.author,
@@ -37,6 +46,7 @@ export function processAddPage(req, res, next) {
         price: req.body.price
     });
 
+    // Adding a new document to the database
     booksModel.create(newBook, (err, Book) => {
         if(err){
             console.error(err);
@@ -53,8 +63,9 @@ export function displayEditPage(req, res, next) {
     /*****************
      * ADD CODE HERE *
      *****************/
-     let id = req.params.id;
 
+     let id = req.params.id;
+     // Pulling the book document to edit from the database
      booksModel.findById(id, (err, book) => {
          if(err){
              console.error(err);
@@ -72,7 +83,7 @@ export function processEditPage(req, res, next) {
     *****************/
 
      let id = req.params.id;
-    
+     // Updating the book document attributes from the entered changes
      let newBook = booksModel({
          _id: req.body.id,
          name: req.body.name,
@@ -81,7 +92,7 @@ export function processEditPage(req, res, next) {
          description: req.body.description,
          price: req.body.price
      });
- 
+     // Updating the changed document into the database
      booksModel.updateOne({_id: id }, newBook, (err, Book) => {
          if(err){
              console.error(err);
@@ -99,7 +110,8 @@ export function processDelete(req, res, next) {
     * ADD CODE HERE *
     *****************/
     let id = req.params.id;
-
+    
+    // Deleting the target book document from the database
     booksModel.remove({_id: id}, (err) => {
         if (err){
             console.error(err);
