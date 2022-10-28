@@ -1,10 +1,19 @@
+<!--App Name     : FavouriteBook List - edit.ejs
+    Author       :
+    Edited by    : Tarik Obeidi
+    ID           : 301252585
+-->
+
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
 
             <form class="form" method="POST">
+
+                <!-- Hidde input field to handle the id update  -->
                 <input type="hidden" name="id" value="<%= book._id %>" >
+                
                 <div class="form-group">
                     <label for="nameTextField">Book Title</label>
                     <input type="text" class="form-control"
